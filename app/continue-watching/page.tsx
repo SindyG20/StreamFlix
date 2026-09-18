@@ -1,0 +1,3 @@
+import { continueWatching } from '@/lib/mock-data'
+import { PageShell, ProgressCard } from '@/components/streamflix'
+export default function ContinuePage() { return <PageShell><div className="space-y-8"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Your library</p><h1 className="mt-2 text-4xl font-semibold tracking-tight">Continue watching</h1><p className="mt-2 text-sm text-muted-foreground">Jump back into your unfinished stories.</p></div><div className="grid gap-4 sm:grid-cols-2">{continueWatching.map((movie) => <ProgressCard key={movie.id} movie={movie} />)}</div></div></PageShell> }
