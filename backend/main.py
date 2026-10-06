@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from database import SessionLocal
 from models import Movie
+from schemas import MovieResponse
 
 
 app = FastAPI()
@@ -22,7 +23,7 @@ def home():
     return {"message": "Welcome to StreamFlix API"}
 
 
-@app.get("/movies")
+@app.get("/movies", response_model=list[MovieResponse])
 def get_movies(db: Session = Depends(get_db)):
     movies = db.query(Movie).all()
 
